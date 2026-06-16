@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -43,7 +42,6 @@ export default function Home() {
     }
   ];
 
-  const transcriptImg = PlaceHolderImages?.find(img => img.id === 'academic-transcript');
   const projectImg = PlaceHolderImages?.find(img => img.id === 'project-placeholder');
   const credentialImg = PlaceHolderImages?.find(img => img.id === 'credential-placeholder');
 
@@ -106,33 +104,71 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Year 4 Transcript Summary */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4">
-                <h4 className="text-xs font-black uppercase tracking-widest text-[#0A192F] opacity-50">Year 4 Course Results</h4>
-                <div className="space-y-2">
-                  {transcriptGrades.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-center text-sm border-b border-gray-50 pb-2 last:border-0 last:pb-0">
-                      <div className="flex flex-col">
-                        <span className="font-black text-[#0A192F] text-[10px]">{item.code}</span>
-                        <span className="font-medium text-[#2D3748]">{item.name}</span>
-                      </div>
-                      <span className="font-black text-[#0A192F] bg-[#EDF2F7] px-2 py-1 rounded text-xs">{item.grade}</span>
+              <div className="relative group overflow-hidden rounded-2xl shadow-xl border border-gray-100">
+                {/* Visual Transcript Document UI */}
+                <div className="bg-white p-6 sm:p-10 font-serif text-[10px] sm:text-xs text-gray-800 space-y-6 min-h-[550px] flex flex-col">
+                  <div className="text-center border-b-2 border-gray-800 pb-4 space-y-1">
+                    <h4 className="text-base sm:text-xl font-bold uppercase tracking-tight">Kwame Nkrumah University</h4>
+                    <p className="text-[9px] sm:text-[10px] italic uppercase tracking-widest text-gray-500">Office of the Registrar (Academic Affairs)</p>
+                    <p className="text-xs sm:text-sm font-black pt-3 text-gray-900 border-t border-gray-100 mt-2">OFFICIAL ACADEMIC RECORD</p>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4 text-[9px] sm:text-[10px] uppercase font-bold text-gray-500 pb-4 border-b border-gray-100">
+                    <div className="space-y-1">
+                      <p>Student Name: <span className="text-gray-900">MUKONDE BUPE</span></p>
+                      <p>Program: <span className="text-gray-900">B.SC ICT EDUCATION</span></p>
                     </div>
-                  ))}
-                </div>
-              </div>
+                    <div className="text-right space-y-1">
+                      <p>Level: <span className="text-gray-900">UNDERGRADUATE</span></p>
+                      <p>Status: <span className="text-gray-900">GRADUATED (CREDIT)</span></p>
+                    </div>
+                  </div>
 
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-inner bg-white border border-gray-200">
-                <Image 
-                  src={transcriptImg?.imageUrl || ''} 
-                  alt="Official Transcript Kwame Nkrumah University" 
-                  fill 
-                  className="object-cover"
-                  data-ai-hint={transcriptImg?.imageHint}
-                />
-                <div className="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer">
-                  <div className="bg-white p-3 rounded-full shadow-lg">
-                    <Download className="w-6 h-6 text-[#0A192F]" />
+                  <div className="flex-grow">
+                    <h5 className="font-bold uppercase text-[9px] mb-3 text-gray-400 tracking-widest">Year 4 Final Results Summary</h5>
+                    <table className="w-full text-left border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-300 text-[8px] sm:text-[9px] text-gray-400">
+                          <th className="py-2 font-black">CODE</th>
+                          <th className="py-2 font-black">COURSE TITLE</th>
+                          <th className="py-2 text-right font-black">GRADE</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-50">
+                        {transcriptGrades.map((item, idx) => (
+                          <tr key={idx} className="group/row hover:bg-gray-50 transition-colors">
+                            <td className="py-3 font-bold text-gray-900">{item.code}</td>
+                            <td className="py-3 text-gray-700">{item.name}</td>
+                            <td className="py-3 text-right font-black text-[#0A192F]">
+                              <span className="bg-[#EDF2F7] px-2 py-1 rounded-sm">{item.grade}</span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-dashed border-gray-300 flex justify-between items-end">
+                    <div className="space-y-2">
+                      <div className="w-32 h-0.5 bg-gray-200"></div>
+                      <p className="text-[7px] sm:text-[8px] font-bold uppercase tracking-widest text-gray-400">Registrar Signature (Digital Verification)</p>
+                    </div>
+                    <div className="text-right flex items-center gap-6">
+                      <div className="hidden sm:block">
+                        <p className="text-[7px] text-gray-400 uppercase tracking-tighter">Verified Document</p>
+                        <p className="text-[9px] font-black text-gray-700 uppercase">ID: KNU-ICT-23-MB</p>
+                      </div>
+                      <div className="w-16 h-16 rounded-full border-4 border-red-100 flex items-center justify-center text-[8px] text-red-700/20 font-black rotate-[20deg] border-dashed select-none">
+                        KNU SEAL
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Overlay Action preserved exactly as requested */}
+                <div className="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                  <div className="bg-white p-4 rounded-full shadow-2xl transform scale-90 group-hover:scale-100 transition-all duration-300">
+                    <Download className="w-8 h-8 text-[#0A192F]" />
                   </div>
                 </div>
               </div>
