@@ -1,15 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { SummaryAssistant } from '@/components/SummaryAssistant';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Github, Linkedin, Mail, Phone, ExternalLink, GraduationCap, Code, FileText, Download } from 'lucide-react';
 
 export default function Home() {
-  const [professionalSummary, setProfessionalSummary] = useState(
-    "A hybrid technical specialist merging object-oriented programming, mobile application development, and pedagogical instruction. Expert in creating meticulous systems documentation and instructional systems designs with a focus on risk/data analytics."
-  );
+  const professionalSummary = "A hybrid technical specialist merging object-oriented programming, mobile application development, and pedagogical instruction. Expert in creating meticulous systems documentation and instructional systems designs with a focus on risk/data analytics.";
 
   const skills = [
     "Full-Stack Web Dev", "OOP", "UI/UX Presentation Design", 
@@ -41,15 +38,11 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-white">
-      {/* FIXED HEADER */}
-      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-md border-b border-gray-100 h-20 px-6 lg:px-12 flex items-center justify-between">
+      {/* HEADER */}
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-md border-b border-gray-100 h-20 px-6 lg:px-12 flex items-center">
         <div className="flex flex-col">
           <h1 className="text-xl lg:text-2xl font-black tracking-tighter text-[#0A192F]">MUKONDE BUPE</h1>
           <p className="text-[10px] lg:text-xs font-semibold text-[#2D3748] opacity-70 uppercase tracking-widest">Technical All-Rounder | Full-Stack Developer & Systems Documentarian</p>
-        </div>
-        
-        <div className="flex items-center gap-6">
-          <SummaryAssistant onSummaryGenerated={setProfessionalSummary} />
         </div>
       </header>
 
@@ -58,7 +51,7 @@ export default function Home() {
         {/* PROFESSIONAL SUMMARY SECTION */}
         <section id="summary" className="max-w-4xl">
           <div className="bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-700" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10" />
             <div className="relative z-10 space-y-4">
               <div className="flex items-center gap-3">
                 <FileText className="w-8 h-8 opacity-50" />
@@ -153,7 +146,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* FIXED FOOTER */}
+      {/* FOOTER */}
       <footer className="fixed bottom-0 left-0 right-0 z-[100] bg-[#0A192F] text-white p-6 lg:px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex gap-8">
