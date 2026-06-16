@@ -104,6 +104,11 @@ export default function Home() {
                 </div>
               </div>
               
+              {/* 
+                  TRANSCRIPT COMPONENT LOCATION:
+                  The code below is what renders the "Digital Twin" of your transcript.
+                  It is a custom-coded React section, not an external image file.
+              */}
               <div className="relative group overflow-hidden rounded-2xl shadow-2xl border border-gray-200">
                 {/* Visual Transcript Digital Twin */}
                 <div className="bg-[#fff9f9] p-6 sm:p-10 font-serif text-[10px] sm:text-xs text-gray-800 space-y-6 min-h-[650px] flex flex-col shadow-inner relative">
@@ -183,7 +188,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Overlay Action */}
+                {/* 
+                    OVERLAY COMPONENT:
+                    This is the path to the overlay element you identified.
+                    Location: src/app/page.tsx
+                */}
                 <div className="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-20">
                   <div className="bg-white p-4 rounded-full shadow-2xl transform scale-90 group-hover:scale-100 transition-all duration-300">
                     <Download className="w-8 h-8 text-[#0A192F]" />
