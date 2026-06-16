@@ -1,34 +1,45 @@
+
 "use client";
 
 import React from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Github, Linkedin, Mail, Phone, ExternalLink, GraduationCap, Code, FileText, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, ExternalLink, GraduationCap, Code, FileText, Download, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
-  const professionalSummary = "A hybrid technical specialist merging object-oriented programming, mobile application development, and pedagogical instruction. Expert in creating meticulous systems documentation and instructional systems designs with a focus on risk/data analytics.";
+  const professionalSummary = "A hybrid technical specialist merging object-oriented programming, mobile application development, and pedagogical instruction. Expert in creating meticulous systems documentation and instructional systems designs with a focus on ICT education and project management.";
 
   const skills = [
-    "Full-Stack Web Dev", "OOP", "UI/UX Presentation Design", 
-    "Systems Documentation", "Network Protocols", "Project Management",
-    "Data Analytics", "Mobile App Dev", "Technical Instruction"
+    "Object Oriented Programming", "Computer Networks", "Computer Architecture",
+    "Project Management", "Systems Documentation", "Educational Management",
+    "Curriculum Design", "Full-Stack Dev", "Entrepreneurship"
+  ];
+
+  const transcriptGrades = [
+    { code: "ICT 410", name: "Object Oriented Programming", grade: "B+" },
+    { code: "ICT 330", name: "Computer Architecture", grade: "B" },
+    { code: "EDU 400", name: "Intro to Educational Management", grade: "B" },
+    { code: "ICT 400", name: "Computer Networks", grade: "C+" },
+    { code: "BSS 430", name: "Project Management", grade: "C+" },
+    { code: "BSS 420", name: "Entrepreneurship", grade: "C+" },
+    { code: "EDU 420", name: "Curriculum Theory and Practice", grade: "C+" }
   ];
 
   const projects = [
     {
-      title: "Custom UI/UX Process Manuals",
-      desc: "Standardizing development workflows for multi-disciplinary teams.",
-      type: "Documentation"
-    },
-    {
-      title: "Independent Web/Mobile Suite",
-      desc: "Bespoke internal tools for educational tracking systems.",
+      title: "Educational Tracking Systems",
+      desc: "Custom internal tools for monitoring student progress and curriculum delivery.",
       type: "Development"
     },
     {
-      title: "Market Analytics Dashboard",
-      desc: "Risk assessment tools for small-scale fintech startups.",
-      type: "Data Science"
+      title: "Network Infrastructure Design",
+      desc: "Standardizing development workflows and network protocols for academic labs.",
+      type: "Documentation"
+    },
+    {
+      title: "ICT Pedagogy Framework",
+      desc: "Instructional systems design for secondary and tertiary ICT education.",
+      type: "Education"
     }
   ];
 
@@ -42,7 +53,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-md border-b border-gray-100 h-20 px-6 lg:px-12 flex items-center">
         <div className="flex flex-col">
           <h1 className="text-xl lg:text-2xl font-black tracking-tighter text-[#0A192F]">MUKONDE BUPE</h1>
-          <p className="text-[10px] lg:text-xs font-semibold text-[#2D3748] opacity-70 uppercase tracking-widest">Technical All-Rounder | Full-Stack Developer & Systems Documentarian</p>
+          <p className="text-[10px] lg:text-xs font-semibold text-[#2D3748] opacity-70 uppercase tracking-widest">B.Sc ICT with Education | Technical Specialist</p>
         </div>
       </header>
 
@@ -50,7 +61,7 @@ export default function Home() {
         
         {/* PROFESSIONAL SUMMARY SECTION */}
         <section id="summary" className="max-w-4xl">
-          <div className="bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group">
+          <div className="bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10" />
             <div className="relative z-10 space-y-4">
               <div className="flex items-center gap-3">
@@ -90,14 +101,31 @@ export default function Home() {
               <div className="flex items-center gap-4">
                 <GraduationCap className="w-10 h-10 text-[#0A192F]" />
                 <div>
-                  <h3 className="text-xl font-black text-[#0A192F]">B.Sc ICT with Education</h3>
-                  <p className="text-sm font-bold text-[#2D3748] opacity-70">Completed with Credit</p>
+                  <h3 className="text-xl font-black text-[#0A192F]">Kwame Nkrumah University</h3>
+                  <p className="text-sm font-bold text-[#2D3748] opacity-70">B.Sc ICT with Education | Graduated with Credit</p>
                 </div>
               </div>
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-inner bg-white">
+              
+              {/* Year 4 Transcript Summary */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4">
+                <h4 className="text-xs font-black uppercase tracking-widest text-[#0A192F] opacity-50">Year 4 Course Results</h4>
+                <div className="space-y-2">
+                  {transcriptGrades.map((item, idx) => (
+                    <div key={idx} className="flex justify-between items-center text-sm border-b border-gray-50 pb-2 last:border-0 last:pb-0">
+                      <div className="flex flex-col">
+                        <span className="font-black text-[#0A192F] text-[10px]">{item.code}</span>
+                        <span className="font-medium text-[#2D3748]">{item.name}</span>
+                      </div>
+                      <span className="font-black text-[#0A192F] bg-[#EDF2F7] px-2 py-1 rounded text-xs">{item.grade}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-inner bg-white border border-gray-200">
                 <Image 
                   src={transcriptImg?.imageUrl || ''} 
-                  alt="Transcript Preview" 
+                  alt="Official Transcript Kwame Nkrumah University" 
                   fill 
                   className="object-cover"
                   data-ai-hint={transcriptImg?.imageHint}
@@ -141,6 +169,13 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+              <div className="bg-[#0A192F]/5 p-6 rounded-3xl border border-dashed border-[#0A192F]/20 flex items-center gap-4">
+                <CheckCircle2 className="w-8 h-8 text-[#0A192F]" />
+                <div>
+                  <p className="text-sm font-black text-[#0A192F]">Credential Verified</p>
+                  <p className="text-[10px] font-medium text-[#2D3748] opacity-70">Bachelor of Science in Information Communication Technology with Education</p>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -150,11 +185,11 @@ export default function Home() {
       <footer className="fixed bottom-0 left-0 right-0 z-[100] bg-[#0A192F] text-white p-6 lg:px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex gap-8">
-            <a href="mailto:contact@mukonde.me" className="flex items-center gap-2 hover:opacity-60 transition-opacity">
+            <a href="mailto:mukondebupe@gmail.com" className="flex items-center gap-2 hover:opacity-60 transition-opacity">
               <Mail className="w-4 h-4" />
               <span className="text-xs font-black uppercase tracking-widest">Email</span>
             </a>
-            <a href="tel:+123456789" className="flex items-center gap-2 hover:opacity-60 transition-opacity">
+            <a href="tel:+260" className="flex items-center gap-2 hover:opacity-60 transition-opacity">
               <Phone className="w-4 h-4" />
               <span className="text-xs font-black uppercase tracking-widest">Phone</span>
             </a>
@@ -177,7 +212,7 @@ export default function Home() {
                 data-ai-hint={credentialImg?.imageHint}
               />
             </div>
-            <span className="text-[10px] font-black uppercase tracking-widest opacity-80">Official Credentials & NRC Attached</span>
+            <span className="text-[10px] font-black uppercase tracking-widest opacity-80">NRC & Official Transcript Attached</span>
           </div>
         </div>
       </footer>

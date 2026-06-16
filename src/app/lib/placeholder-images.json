@@ -3,9 +3,9 @@
   "placeholderImages": [
     {
       "id": "academic-transcript",
-      "description": "Authenticated academic transcript preview",
-      "imageUrl": "https://picsum.photos/seed/transcript/600/800",
-      "imageHint": "academic transcript"
+      "description": "B.Sc ICT with Education Transcript - Kwame Nkrumah University",
+      "imageUrl": "https://picsum.photos/seed/mukonde-bupe-transcript/600/800",
+      "imageHint": "official university transcript document"
     },
     {
       "id": "project-placeholder",
