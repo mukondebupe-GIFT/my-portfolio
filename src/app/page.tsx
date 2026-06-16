@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -62,9 +63,9 @@ export default function Home() {
 
       <main className="pt-32 pb-40 px-6 lg:px-12 max-w-7xl mx-auto space-y-24">
         
-        {/* PROFESSIONAL SUMMARY SECTION */}
-        <section id="summary" className="max-w-4xl">
-          <div className="bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+        {/* PROFESSIONAL SUMMARY & PROFILE IMAGE SECTION */}
+        <section id="summary" className="flex flex-col lg:flex-row gap-8 items-start">
+          <div className="flex-grow bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden h-full">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10" />
             <div className="relative z-10 space-y-4">
               <div className="flex items-center gap-3">
@@ -75,6 +76,17 @@ export default function Home() {
                 {professionalSummary}
               </p>
             </div>
+          </div>
+          
+          {/* Profile Image Container */}
+          <div className="relative w-full lg:w-80 aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-[#0A192F] flex-shrink-0 bg-gray-50">
+            <Image 
+              src="/images/me.jpg" 
+              alt="Mukonde Bupe" 
+              fill 
+              className="object-cover"
+              priority
+            />
           </div>
         </section>
 
@@ -109,14 +121,12 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Transcript Image Display */}
-              <div className="relative w-full aspect-[3/4] min-h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
+              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
                 <Image 
                   src="/images/transcript.jpg" 
                   alt="Official Transcript Mukonde Bupe" 
                   fill 
                   className="object-contain"
-                  priority
                 />
               </div>
 
