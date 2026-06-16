@@ -192,9 +192,6 @@ export default function Home() {
               <Download className="w-3 h-3" />
               Download Full Transcript
             </Button>
-            <div className="hidden lg:flex items-center gap-4 bg-white/10 px-4 py-2 rounded-2xl">
-              <span className="text-[10px] font-black uppercase tracking-widest opacity-80">Official Transcript Attached (Student 2022045)</span>
-            </div>
           </div>
         </div>
       </footer>
