@@ -5,10 +5,14 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { GravityPhysics } from '@/components/GravityPhysics';
 import { SummaryAssistant } from '@/components/SummaryAssistant';
-import { PlaceHolderImages } from '@/app/lib/placeholder-images';
-import { Github, Linkedin, Mail, Phone, ExternalLink, GraduationCap, Briefcase, Code, FileText, Download } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Github, Linkedin, Mail, Phone, ExternalLink, GraduationCap, Briefcase, Code, FileText, Download, Zap, ZapOff } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
 
 export default function Home() {
+  const [isPhysicsEnabled, setIsPhysicsEnabled] = useState(false);
   const [professionalSummary, setProfessionalSummary] = useState(
     "A hybrid technical specialist merging object-oriented programming, mobile application development, and pedagogical instruction. Expert in creating meticulous systems documentation and instructional systems designs with a focus on risk/data analytics."
   );
@@ -37,9 +41,9 @@ export default function Home() {
     }
   ];
 
-  const transcriptImg = PlaceHolderImages.find(img => img.id === 'academic-transcript');
-  const projectImg = PlaceHolderImages.find(img => img.id === 'project-placeholder');
-  const credentialImg = PlaceHolderImages.find(img => img.id === 'credential-placeholder');
+  const transcriptImg = PlaceHolderImages?.find(img => img.id === 'academic-transcript');
+  const projectImg = PlaceHolderImages?.find(img => img.id === 'project-placeholder');
+  const credentialImg = PlaceHolderImages?.find(img => img.id === 'credential-placeholder');
 
   return (
     <div className="relative min-h-screen flex flex-col bg-white">
@@ -49,24 +53,30 @@ export default function Home() {
           <h1 className="text-xl lg:text-2xl font-black tracking-tighter text-[#0A192F]">MUKONDE BUPE</h1>
           <p className="text-[10px] lg:text-xs font-semibold text-[#2D3748] opacity-70 uppercase tracking-widest">Technical All-Rounder | Full-Stack Developer & Systems Documentarian</p>
         </div>
-        <nav className="hidden md:flex gap-8 items-center text-sm font-bold uppercase tracking-widest text-[#0A192F]">
-          <a href="#summary" className="hover:opacity-50 transition-opacity">Summary</a>
-          <a href="#competencies" className="hover:opacity-50 transition-opacity">Competencies</a>
-          <a href="#academic" className="hover:opacity-50 transition-opacity">Academic</a>
-          <a href="#projects" className="hover:opacity-50 transition-opacity">Projects</a>
-        </nav>
-        <div className="flex gap-4">
+        
+        <div className="flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
+            <Label htmlFor="physics-toggle" className="text-[10px] font-black uppercase tracking-widest opacity-60">
+              {isPhysicsEnabled ? "Gravity Active" : "Normal Mode"}
+            </Label>
+            <Switch 
+              id="physics-toggle" 
+              checked={isPhysicsEnabled} 
+              onCheckedChange={setIsPhysicsEnabled}
+            />
+            {isPhysicsEnabled ? <Zap className="w-4 h-4 text-yellow-500 fill-yellow-500" /> : <ZapOff className="w-4 h-4 text-gray-400" />}
+          </div>
           <SummaryAssistant onSummaryGenerated={setProfessionalSummary} />
         </div>
       </header>
 
       {/* GRAVITY SANDBOX */}
-      <GravityPhysics>
+      <GravityPhysics enabled={isPhysicsEnabled}>
         <main className="pt-32 pb-40 px-6 lg:px-12 max-w-7xl mx-auto space-y-24">
           
-          {/* PROFESSIONAL SUMMARY SECTION */}
+          {/* PROFESSIONAL SUMMARY SECTION - Kept stable for professionalism */}
           <section id="summary" className="max-w-4xl">
-            <div className="shatter bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group">
+            <div className="bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-700" />
               <div className="relative z-10 space-y-4">
                 <div className="flex items-center gap-3">
@@ -80,12 +90,18 @@ export default function Home() {
             </div>
           </section>
 
-          {/* CORE COMPETENCIES CANVAS */}
+          {/* CORE COMPETENCIES - Shatterable badges */}
           <section id="competencies" className="space-y-8">
-            <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase border-b-2 border-[#0A192F] pb-2 inline-block">Core Competencies</h2>
+            <div className="flex items-center justify-between border-b-2 border-[#0A192F] pb-2">
+              <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase inline-block">Core Competencies</h2>
+              {!isPhysicsEnabled && <span className="text-[10px] font-bold text-gray-400 uppercase tracking-tighter">Enable Gravity to interact with elements</span>}
+            </div>
             <div className="flex flex-wrap gap-4">
               {skills.map((skill, i) => (
-                <div key={i} className="shatter bg-white border-2 border-[#0A192F] text-[#0A192F] px-6 py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg hover:bg-[#0A192F] hover:text-white transition-colors cursor-grab active:cursor-grabbing">
+                <div 
+                  key={i} 
+                  className={`${isPhysicsEnabled ? 'shatter' : ''} bg-white border-2 border-[#0A192F] text-[#0A192F] px-6 py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg hover:bg-[#0A192F] hover:text-white transition-colors cursor-grab active:cursor-grabbing`}
+                >
                   {skill}
                 </div>
               ))}
@@ -97,7 +113,7 @@ export default function Home() {
             {/* ACADEMIC ACHIEVEMENTS */}
             <section id="academic" className="space-y-8">
               <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase border-b-2 border-[#0A192F] pb-2 inline-block">Academic Achievements</h2>
-              <div className="shatter bg-[#EDF2F7] p-8 rounded-3xl border border-gray-200 space-y-6">
+              <div className="bg-[#EDF2F7] p-8 rounded-3xl border border-gray-200 space-y-6">
                 <div className="flex items-center gap-4">
                   <GraduationCap className="w-10 h-10 text-[#0A192F]" />
                   <div>
@@ -127,7 +143,7 @@ export default function Home() {
               <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase border-b-2 border-[#0A192F] pb-2 inline-block">Selected Projects</h2>
               <div className="grid gap-6">
                 {projects.map((proj, i) => (
-                  <div key={i} className="shatter group bg-white border border-gray-100 p-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all border-l-8 border-l-[#0A192F]">
+                  <div key={i} className="group bg-white border border-gray-100 p-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all border-l-8 border-l-[#0A192F]">
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center gap-2 px-3 py-1 bg-[#F7FAFC] rounded-full">
                         {proj.type === 'Development' ? <Code className="w-3 h-3" /> : <FileText className="w-3 h-3" />}

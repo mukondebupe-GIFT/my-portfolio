@@ -9,25 +9,53 @@ declare global {
   }
 }
 
-export function GravityPhysics({ children }: { children: React.ReactNode }) {
+interface GravityPhysicsProps {
+  children: React.ReactNode;
+  enabled: boolean;
+}
+
+export function GravityPhysics({ children, enabled }: GravityPhysicsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isActive, setIsActive] = useState(false);
   const engineRef = useRef<any>(null);
+  const renderRef = useRef<any>(null);
+  const runnerRef = useRef<any>(null);
+  const animationFrameRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsActive(true);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!isActive || !containerRef.current) return;
+    // If physics is disabled, clean up everything and return children normally
+    if (!enabled) {
+      if (engineRef.current) {
+        const Matter = window.Matter;
+        if (Matter) {
+          Matter.Engine.clear(engineRef.current);
+          if (renderRef.current) {
+            Matter.Render.stop(renderRef.current);
+            renderRef.current.canvas.remove();
+          }
+          if (runnerRef.current) {
+            Matter.Runner.stop(runnerRef.current);
+          }
+        }
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current);
+        }
+        
+        // Restore elements
+        const elements = document.querySelectorAll('.shatter');
+        elements.forEach((el: any) => {
+          el.style.visibility = 'visible';
+          el.style.position = '';
+          el.style.transform = '';
+          el.style.left = '';
+          el.style.top = '';
+          el.style.zIndex = '';
+        });
+      }
+      return;
+    }
 
     const Matter = window.Matter;
-    if (!Matter) return;
+    if (!Matter || !containerRef.current) return;
 
     const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint, Composite } = Matter;
 
@@ -45,16 +73,19 @@ export function GravityPhysics({ children }: { children: React.ReactNode }) {
         background: 'transparent'
       }
     });
+    renderRef.current = render;
 
     Render.run(render);
     const runner = Runner.create();
+    runnerRef.current = runner;
     Runner.run(runner, engine);
 
     // Boundaries
-    const ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight + 30, window.innerWidth, 60, { isStatic: true });
-    const leftWall = Bodies.rectangle(-30, window.innerHeight / 2, 60, window.innerHeight, { isStatic: true });
-    const rightWall = Bodies.rectangle(window.innerWidth + 30, window.innerHeight / 2, 60, window.innerHeight, { isStatic: true });
-    const ceiling = Bodies.rectangle(window.innerWidth / 2, -30, window.innerWidth, 60, { isStatic: true });
+    const thickness = 60;
+    const ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight + thickness / 2, window.innerWidth, thickness, { isStatic: true });
+    const leftWall = Bodies.rectangle(-thickness / 2, window.innerHeight / 2, thickness, window.innerHeight, { isStatic: true });
+    const rightWall = Bodies.rectangle(window.innerWidth + thickness / 2, window.innerHeight / 2, thickness, window.innerHeight, { isStatic: true });
+    const ceiling = Bodies.rectangle(window.innerWidth / 2, -thickness / 2, window.innerWidth, thickness, { isStatic: true });
     
     Composite.add(world, [ground, leftWall, rightWall, ceiling]);
 
@@ -68,7 +99,7 @@ export function GravityPhysics({ children }: { children: React.ReactNode }) {
       const y = rect.top + rect.height / 2;
       
       const body = Bodies.rectangle(x, y, rect.width, rect.height, {
-        restitution: 0.5,
+        restitution: 0.6,
         friction: 0.1,
         render: { visible: false }
       });
@@ -76,7 +107,7 @@ export function GravityPhysics({ children }: { children: React.ReactNode }) {
       bodiesMap.set(el, body);
       Composite.add(world, body);
       
-      // Hide original and prepare for transform update
+      // Setup styles for physics manipulation
       el.style.visibility = 'hidden';
       el.style.position = 'fixed';
       el.style.margin = '0';
@@ -93,7 +124,7 @@ export function GravityPhysics({ children }: { children: React.ReactNode }) {
         el.style.top = `${y - el.offsetHeight / 2}px`;
         el.style.transform = `rotate(${angle}rad)`;
       });
-      requestAnimationFrame(update);
+      animationFrameRef.current = requestAnimationFrame(update);
     };
     update();
 
@@ -112,8 +143,8 @@ export function GravityPhysics({ children }: { children: React.ReactNode }) {
     const handleResize = () => {
       render.canvas.width = window.innerWidth;
       render.canvas.height = window.innerHeight;
-      Matter.Body.setPosition(ground, { x: window.innerWidth / 2, y: window.innerHeight + 30 });
-      Matter.Body.setPosition(rightWall, { x: window.innerWidth + 30, y: window.innerHeight / 2 });
+      Matter.Body.setPosition(ground, { x: window.innerWidth / 2, y: window.innerHeight + thickness / 2 });
+      Matter.Body.setPosition(rightWall, { x: window.innerWidth + thickness / 2, y: window.innerHeight / 2 });
     };
 
     window.addEventListener('resize', handleResize);
@@ -122,12 +153,13 @@ export function GravityPhysics({ children }: { children: React.ReactNode }) {
       window.removeEventListener('resize', handleResize);
       Engine.clear(engine);
       Render.stop(render);
-      render.canvas.remove();
+      if (render.canvas) render.canvas.remove();
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
     };
-  }, [isActive]);
+  }, [enabled]);
 
   return (
-    <div ref={containerRef} className="relative w-full min-h-screen overflow-x-hidden">
+    <div ref={containerRef} className="relative w-full min-h-screen">
       {children}
     </div>
   );
