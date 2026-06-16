@@ -1,8 +1,10 @@
+
 "use client";
 
 import React from 'react';
 import Image from 'next/image';
-import { Linkedin, Mail, Phone, ExternalLink, GraduationCap, Code, FileText, Download, CheckCircle2, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+import { Linkedin, Mail, Phone, ExternalLink, GraduationCap, Code, FileText, Download, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
@@ -22,21 +24,27 @@ export default function Home() {
 
   const projects = [
     {
+      id: "1",
       title: "Store Flow",
+      category: "Development",
       desc: "A local business friendly store management system handling sales stock taking and more.",
-      type: "Development",
+      type: "Video Presentation",
       image: "/images/project1.jpg"
     },
     {
-      title: "Q.R.H Quick Response health Card",
+      id: "2",
+      title: "Q.R.H Quick Response Health Card",
+      category: "Documentation",
       desc: "Standardizing patient retrieval workflows for clinical facilities by streamlining the identification process.",
-      type: "Documentation",
+      type: "Video Case Study",
       image: "/images/project2.jpg"
     },
     {
-      title: "visual operation simulation",
-      desc: "achieving a new level of immersive experience for the medical practitioners and bringing the whole room into the inner working of the human body one tactile simulation at a time.",
-      type: "Education",
+      id: "3",
+      title: "Visual Operation Simulation",
+      category: "Education",
+      desc: "Achieving a new level of immersive experience for the medical practitioners and bringing the whole room into the inner working of the human body.",
+      type: "Image Gallery",
       image: "/images/project3.jpg"
     }
   ];
@@ -55,11 +63,9 @@ export default function Home() {
       {/* HEADER */}
       <header className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-100 h-28 px-6 lg:px-12 flex items-center justify-center overflow-hidden">
         <div className="flex flex-col items-center text-center max-w-full">
-          {/* Name - Green Arrow Reference */}
           <h1 className="animate-name-slide text-2xl lg:text-4xl font-black tracking-tighter text-[#0A192F] whitespace-nowrap">
             MUKONDE BUPE
           </h1>
-          {/* Subtitle - Black Box Reference - Larger, more visible font */}
           <p className="animate-title-slide text-sm lg:text-lg font-extrabold text-[#2D3748] uppercase tracking-[0.2em] mt-1 drop-shadow-sm">
             B.Sc ICT with Education | Technical Specialist
           </p>
@@ -68,7 +74,7 @@ export default function Home() {
 
       <main className="pt-40 pb-40 px-6 lg:px-12 max-w-7xl mx-auto space-y-24">
         
-        {/* PROFESSIONAL SUMMARY & PROFILE IMAGE SECTION */}
+        {/* SUMMARY & PROFILE */}
         <section id="summary" className="flex flex-col lg:flex-row gap-8 items-stretch">
           <div className="flex-1 bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col justify-center">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10" />
@@ -83,7 +89,6 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Profile Image Container - me.jpg */}
           <div className="relative w-full lg:w-80 aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-[#0A192F] flex-shrink-0 bg-gray-50">
             <Image 
               src="/images/me.jpg" 
@@ -95,7 +100,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CORE COMPETENCIES */}
+        {/* COMPETENCIES */}
         <section id="competencies" className="space-y-8">
           <div className="flex items-center justify-between border-b-2 border-[#0A192F] pb-2">
             <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase inline-block">Core Competencies</h2>
@@ -112,9 +117,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ACADEMIC & PROJECTS GRID */}
+        {/* ACADEMIC & PROJECTS */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* ACADEMIC ACHIEVEMENTS */}
+          {/* ACADEMIC */}
           <section id="academic" className="space-y-8">
             <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase border-b-2 border-[#0A192F] pb-2 inline-block">Academic Achievements</h2>
             <div className="bg-[#F7FAFC] p-4 lg:p-8 rounded-3xl border border-gray-200 space-y-6">
@@ -122,15 +127,14 @@ export default function Home() {
                 <GraduationCap className="w-10 h-10 text-[#0A192F]" />
                 <div>
                   <h3 className="text-xl font-black text-[#0A192F]">Kwame Nkrumah University</h3>
-                  <p className="text-xs font-bold text-[#2D3748] opacity-70">In association with Kabwe Institute of Technology</p>
+                  <p className="text-xs font-bold text-[#2D3748] opacity-70">B.Sc ICT with Education</p>
                 </div>
               </div>
               
-              {/* Actual Transcript Image Display */}
               <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
                 <Image 
                   src="/images/transcript.jpg" 
-                  alt="Official Transcript Mukonde Bupe" 
+                  alt="Official Transcript" 
                   fill 
                   className="object-contain"
                 />
@@ -138,47 +142,43 @@ export default function Home() {
 
               <div className="bg-blue-50 p-4 rounded-2xl border border-blue-100 flex items-center gap-4">
                 <ShieldCheck className="w-6 h-6 text-blue-600" />
-                <p className="text-xs font-bold text-blue-900 uppercase tracking-tight">Digitally Verified Document (2025 Graduate)</p>
+                <p className="text-xs font-bold text-blue-900 uppercase tracking-tight">Digitally Verified Document</p>
               </div>
             </div>
           </section>
 
-          {/* SELECTED PROJECTS GALLERY */}
+          {/* PROJECTS */}
           <section id="projects" className="space-y-8">
             <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase border-b-2 border-[#0A192F] pb-2 inline-block">Selected Projects</h2>
             <div className="grid gap-6">
-              {projects.map((proj, i) => (
-                <div key={i} className="group bg-white border border-gray-100 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all border-l-8 border-l-[#0A192F]">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="flex items-center gap-2 px-3 py-1 bg-[#F7FAFC] rounded-full">
-                      {proj.type === 'Development' ? <Code className="w-3 h-3 text-[#0A192F]" /> : <FileText className="w-3 h-3 text-[#0A192F]" />}
-                      <span className="text-[10px] font-black uppercase tracking-widest opacity-60">{proj.type}</span>
+              {projects.map((proj) => (
+                <Link key={proj.id} href={`/projects/${proj.id}`}>
+                  <div className="group bg-white border border-gray-100 p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all border-l-8 border-l-[#0A192F] cursor-pointer active:scale-[0.98]">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="flex items-center gap-2 px-3 py-1 bg-[#F7FAFC] rounded-full">
+                        {proj.category === 'Development' ? <Code className="w-3 h-3 text-[#0A192F]" /> : <FileText className="w-3 h-3 text-[#0A192F]" />}
+                        <span className="text-[10px] font-black uppercase tracking-widest opacity-60">{proj.category}</span>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-[#0A192F] transition-transform group-hover:translate-x-1" />
                     </div>
-                    <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 transition-opacity" />
+                    <div className="flex gap-6 items-center">
+                      <div className="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-100">
+                        <Image 
+                          src={proj.image} 
+                          alt={proj.title} 
+                          fill 
+                          className="object-cover transition-transform group-hover:scale-110"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <h4 className="text-lg font-black text-[#0A192F]">{proj.title}</h4>
+                        <p className="text-sm font-medium text-[#2D3748] leading-snug">{proj.desc}</p>
+                        <p className="text-[10px] font-bold text-blue-600 uppercase mt-2 tracking-widest">Click to view {proj.type}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex gap-6 items-center">
-                    <div className="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-100">
-                      <Image 
-                        src={proj.image} 
-                        alt={`${proj.title} Preview`} 
-                        fill 
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <h4 className="text-lg font-black text-[#0A192F]">{proj.title}</h4>
-                      <p className="text-sm font-medium text-[#2D3748] leading-snug">{proj.desc}</p>
-                    </div>
-                  </div>
-                </div>
+                </Link>
               ))}
-              <div className="bg-[#0A192F]/5 p-6 rounded-3xl border border-dashed border-[#0A192F]/20 flex items-center gap-4">
-                <CheckCircle2 className="w-8 h-8 text-[#0A192F]" />
-                <div>
-                  <p className="text-sm font-black text-[#0A192F]">Education Credential</p>
-                  <p className="text-[10px] font-medium text-[#2D3748] opacity-70">B.Sc in Information Communication Technology with Education</p>
-                </div>
-              </div>
             </div>
           </section>
         </div>
