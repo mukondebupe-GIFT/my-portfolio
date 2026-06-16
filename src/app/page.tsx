@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -54,31 +53,37 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex flex-col bg-white font-sans text-[#2D3748]">
       {/* HEADER */}
-      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-gray-100 h-20 px-6 lg:px-12 flex items-center">
-        <div className="flex flex-col">
-          <h1 className="text-xl lg:text-2xl font-black tracking-tighter text-[#0A192F]">MUKONDE BUPE</h1>
-          <p className="text-[10px] lg:text-xs font-semibold text-[#2D3748] opacity-70 uppercase tracking-widest">B.Sc ICT with Education | Technical Specialist</p>
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-100 h-28 px-6 lg:px-12 flex items-center justify-center overflow-hidden">
+        <div className="flex flex-col items-center text-center max-w-full">
+          {/* Name - Green Arrow Reference */}
+          <h1 className="animate-name-slide text-2xl lg:text-4xl font-black tracking-tighter text-[#0A192F] whitespace-nowrap">
+            MUKONDE BUPE
+          </h1>
+          {/* Subtitle - Black Box Reference - Larger, more visible font */}
+          <p className="animate-title-slide text-sm lg:text-lg font-extrabold text-[#2D3748] uppercase tracking-[0.2em] mt-1 drop-shadow-sm">
+            B.Sc ICT with Education | Technical Specialist
+          </p>
         </div>
       </header>
 
-      <main className="pt-32 pb-40 px-6 lg:px-12 max-w-7xl mx-auto space-y-24">
+      <main className="pt-40 pb-40 px-6 lg:px-12 max-w-7xl mx-auto space-y-24">
         
         {/* PROFESSIONAL SUMMARY & PROFILE IMAGE SECTION */}
-        <section id="summary" className="flex flex-col lg:flex-row gap-8 items-start">
-          <div className="flex-grow bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden h-full">
+        <section id="summary" className="flex flex-col lg:flex-row gap-8 items-stretch">
+          <div className="flex-1 bg-[#0A192F] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden flex flex-col justify-center">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mt-10" />
             <div className="relative z-10 space-y-4">
               <div className="flex items-center gap-3">
-                <FileText className="w-8 h-8 opacity-50" />
-                <h2 className="text-3xl font-black tracking-tight">Professional Summary</h2>
+                <FileText className="w-8 h-8 text-blue-400" />
+                <h2 className="text-3xl font-black tracking-tight text-white">Professional Summary</h2>
               </div>
-              <p className="text-lg lg:text-xl leading-relaxed font-medium text-white/90">
+              <p className="text-lg lg:text-xl leading-relaxed font-medium text-blue-50/90">
                 {professionalSummary}
               </p>
             </div>
           </div>
           
-          {/* Profile Image Container */}
+          {/* Profile Image Container - me.jpg */}
           <div className="relative w-full lg:w-80 aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-[#0A192F] flex-shrink-0 bg-gray-50">
             <Image 
               src="/images/me.jpg" 
@@ -121,6 +126,7 @@ export default function Home() {
                 </div>
               </div>
               
+              {/* Actual Transcript Image Display */}
               <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
                 <Image 
                   src="/images/transcript.jpg" 
@@ -132,7 +138,7 @@ export default function Home() {
 
               <div className="bg-blue-50 p-4 rounded-2xl border border-blue-100 flex items-center gap-4">
                 <ShieldCheck className="w-6 h-6 text-blue-600" />
-                <p className="text-xs font-bold text-blue-900 uppercase tracking-tight">Transcript Digitally Verified (Student ID: 2022045)</p>
+                <p className="text-xs font-bold text-blue-900 uppercase tracking-tight">Digitally Verified Document (2025 Graduate)</p>
               </div>
             </div>
           </section>
@@ -169,7 +175,7 @@ export default function Home() {
               <div className="bg-[#0A192F]/5 p-6 rounded-3xl border border-dashed border-[#0A192F]/20 flex items-center gap-4">
                 <CheckCircle2 className="w-8 h-8 text-[#0A192F]" />
                 <div>
-                  <p className="text-sm font-black text-[#0A192F]">Degree Verification</p>
+                  <p className="text-sm font-black text-[#0A192F]">Education Credential</p>
                   <p className="text-[10px] font-medium text-[#2D3748] opacity-70">B.Sc in Information Communication Technology with Education</p>
                 </div>
               </div>

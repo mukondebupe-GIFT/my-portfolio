@@ -23,3 +23,25 @@ header, footer {
   background: #0A192F;
   color: white;
 }
+
+/* Custom Header Animations */
+@keyframes slideInToCenter {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-title-slide {
+  animation: slideInToCenter 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-name-slide {
+  transform: translateX(-100vw);
+  opacity: 0;
+  animation: slideInToCenter 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
+}
