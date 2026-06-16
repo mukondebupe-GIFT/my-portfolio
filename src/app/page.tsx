@@ -3,10 +3,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Github, Linkedin, Mail, Phone, ExternalLink, GraduationCap, Code, FileText, Download, CheckCircle2 } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, ExternalLink, GraduationCap, Code, FileText, Download, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 export default function Home() {
-  const professionalSummary = "A hybrid technical specialist merging object-oriented programming, mobile application development, and pedagogical instruction. Expert in creating meticulous systems documentation and instructional systems designs with a focus on ICT education and project management.";
+  const professionalSummary = "A hybrid technical specialist merging object-oriented programming, network infrastructure, and pedagogical instruction. Expert in creating meticulous systems documentation and instructional systems designs with a focused background in ICT education and project management from Kwame Nkrumah University.";
 
   const skills = [
     "Object Oriented Programming", "Computer Networks", "Computer Architecture",
@@ -15,13 +15,13 @@ export default function Home() {
   ];
 
   const transcriptGrades = [
-    { code: "ICT 410", name: "Object Oriented Programming", grade: "B+" },
-    { code: "ICT 330", name: "Computer Architecture", grade: "B" },
-    { code: "EDU 400", name: "Intro to Educational Management", grade: "B" },
-    { code: "ICT 400", name: "Computer Networks", grade: "C+" },
-    { code: "BSS 430", name: "Project Management", grade: "C+" },
-    { code: "BSS 420", name: "Entrepreneurship", grade: "C+" },
-    { code: "EDU 420", name: "Curriculum Theory and Practice", grade: "C+" }
+    { code: "EDU 400", name: "INTRODUCTION TO EDUCATIONAL MANAGEMENT", grade: "B" },
+    { code: "EDU 420", name: "CURRICULUM THEORY AND PRACTICE", grade: "C+" },
+    { code: "ICT 400", name: "COMPUTER NETWORKS", grade: "C+" },
+    { code: "ICT 410", name: "OBJECT ORIENTED PROGRAMMING", grade: "B+" },
+    { code: "BSS 420", name: "ENTREPRENEURSHIP", grade: "C+" },
+    { code: "BSS 430", name: "PROJECT MANAGEMENT", grade: "C+" },
+    { code: "ICT 330", name: "COMPUTER ARCHITECTURE", grade: "B" }
   ];
 
   const projects = [
@@ -95,52 +95,54 @@ export default function Home() {
           {/* ACADEMIC ACHIEVEMENTS */}
           <section id="academic" className="space-y-8">
             <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase border-b-2 border-[#0A192F] pb-2 inline-block">Academic Achievements</h2>
-            <div className="bg-[#EDF2F7] p-8 rounded-3xl border border-gray-200 space-y-6">
-              <div className="flex items-center gap-4">
+            <div className="bg-[#F7FAFC] p-4 lg:p-8 rounded-3xl border border-gray-200 space-y-6">
+              <div className="flex items-center gap-4 mb-4">
                 <GraduationCap className="w-10 h-10 text-[#0A192F]" />
                 <div>
                   <h3 className="text-xl font-black text-[#0A192F]">Kwame Nkrumah University</h3>
-                  <p className="text-sm font-bold text-[#2D3748] opacity-70">B.Sc ICT with Education | Graduated with Credit</p>
+                  <p className="text-xs font-bold text-[#2D3748] opacity-70">In association with Kabwe Institute of Technology</p>
                 </div>
               </div>
               
-              <div className="relative group overflow-hidden rounded-2xl shadow-xl border border-gray-100">
-                {/* Visual Transcript Document UI */}
-                <div className="bg-white p-6 sm:p-10 font-serif text-[10px] sm:text-xs text-gray-800 space-y-6 min-h-[550px] flex flex-col">
-                  <div className="text-center border-b-2 border-gray-800 pb-4 space-y-1">
-                    <h4 className="text-base sm:text-xl font-bold uppercase tracking-tight">Kwame Nkrumah University</h4>
-                    <p className="text-[9px] sm:text-[10px] italic uppercase tracking-widest text-gray-500">Office of the Registrar (Academic Affairs)</p>
-                    <p className="text-xs sm:text-sm font-black pt-3 text-gray-900 border-t border-gray-100 mt-2">OFFICIAL ACADEMIC RECORD</p>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4 text-[9px] sm:text-[10px] uppercase font-bold text-gray-500 pb-4 border-b border-gray-100">
-                    <div className="space-y-1">
-                      <p>Student Name: <span className="text-gray-900">MUKONDE BUPE</span></p>
-                      <p>Program: <span className="text-gray-900">B.SC ICT EDUCATION</span></p>
-                    </div>
-                    <div className="text-right space-y-1">
-                      <p>Level: <span className="text-gray-900">UNDERGRADUATE</span></p>
-                      <p>Status: <span className="text-gray-900">GRADUATED (CREDIT)</span></p>
-                    </div>
+              <div className="relative group overflow-hidden rounded-2xl shadow-2xl border border-gray-200">
+                {/* Visual Transcript Digital Twin */}
+                <div className="bg-[#fff9f9] p-6 sm:p-10 font-serif text-[10px] sm:text-xs text-gray-800 space-y-6 min-h-[650px] flex flex-col shadow-inner relative">
+                  {/* Watermark/Seal Effect */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+                     <div className="w-96 h-96 border-[20px] border-blue-900 rounded-full flex items-center justify-center text-6xl font-black text-center">
+                        KABWE INSTITUTE<br/>OF TECHNOLOGY
+                     </div>
                   </div>
 
-                  <div className="flex-grow">
-                    <h5 className="font-bold uppercase text-[9px] mb-3 text-gray-400 tracking-widest">Year 4 Final Results Summary</h5>
-                    <table className="w-full text-left border-collapse">
+                  <div className="text-center border-b-2 border-gray-800 pb-4 space-y-1 relative z-10">
+                    <h4 className="text-base sm:text-lg font-bold uppercase tracking-tight text-blue-900">KWAME NKRUMAH UNIVERSITY</h4>
+                    <p className="text-[9px] sm:text-[10px] italic uppercase tracking-widest text-blue-800 font-bold">In association with</p>
+                    <p className="text-sm sm:text-base font-black text-blue-900">KABWE INSTITUTE OF TECHNOLOGY</p>
+                    <p className="text-xs font-black pt-4 text-gray-900 border-t border-gray-200 mt-2 tracking-[0.2em] uppercase">Student Transcript of Results</p>
+                  </div>
+                  
+                  <div className="space-y-1 py-4 border-b border-gray-200 relative z-10">
+                    <p className="font-bold text-gray-500 uppercase text-[9px]">NAME: <span className="text-gray-900">MUKONDE BUPE'S TRANSCRIPT OF RESULTS</span></p>
+                    <p className="font-bold text-gray-500 uppercase text-[9px]">STUDENT NUMBER: <span className="text-gray-900">2022045</span></p>
+                    <p className="font-bold text-gray-900 mt-4 underline decoration-double">2025 (YEAR 4)</p>
+                  </div>
+
+                  <div className="flex-grow relative z-10">
+                    <table className="w-full text-left border-collapse mt-4">
                       <thead>
-                        <tr className="border-b border-gray-300 text-[8px] sm:text-[9px] text-gray-400">
-                          <th className="py-2 font-black">CODE</th>
+                        <tr className="border-b-2 border-gray-300 text-[8px] sm:text-[9px] text-gray-600">
+                          <th className="py-2 font-black w-20">CODE</th>
                           <th className="py-2 font-black">COURSE TITLE</th>
-                          <th className="py-2 text-right font-black">GRADE</th>
+                          <th className="py-2 text-right font-black w-16">GRADE</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-gray-50">
+                      <tbody className="divide-y divide-gray-100">
                         {transcriptGrades.map((item, idx) => (
-                          <tr key={idx} className="group/row hover:bg-gray-50 transition-colors">
+                          <tr key={idx} className="hover:bg-blue-50/30 transition-colors">
                             <td className="py-3 font-bold text-gray-900">{item.code}</td>
-                            <td className="py-3 text-gray-700">{item.name}</td>
-                            <td className="py-3 text-right font-black text-[#0A192F]">
-                              <span className="bg-[#EDF2F7] px-2 py-1 rounded-sm">{item.grade}</span>
+                            <td className="py-3 text-gray-700 font-medium">{item.name}</td>
+                            <td className="py-3 text-right font-black text-blue-900">
+                              <span className="bg-white/80 border border-gray-100 px-2 py-1 rounded shadow-sm">{item.grade}</span>
                             </td>
                           </tr>
                         ))}
@@ -148,29 +150,50 @@ export default function Home() {
                     </table>
                   </div>
 
-                  <div className="mt-8 pt-6 border-t border-dashed border-gray-300 flex justify-between items-end">
-                    <div className="space-y-2">
-                      <div className="w-32 h-0.5 bg-gray-200"></div>
-                      <p className="text-[7px] sm:text-[8px] font-bold uppercase tracking-widest text-gray-400">Registrar Signature (Digital Verification)</p>
+                  <div className="mt-8 pt-6 border-t border-gray-300 relative z-10">
+                    <div className="bg-gray-100/50 p-3 rounded-lg border border-gray-200 mb-6">
+                      <p className="text-[9px] sm:text-[10px] font-bold text-gray-800 leading-tight uppercase">
+                        HE WILL BE AWARDED A BACHELOR OF SCIENCE IN INFORMATION COMMUNICATION TECHNOLOGY WITH EDUCATION WITH A CREDIT LATER IN THE YEAR
+                      </p>
                     </div>
-                    <div className="text-right flex items-center gap-6">
-                      <div className="hidden sm:block">
-                        <p className="text-[7px] text-gray-400 uppercase tracking-tighter">Verified Document</p>
-                        <p className="text-[9px] font-black text-gray-700 uppercase">ID: KNU-ICT-23-MB</p>
+
+                    <div className="flex justify-between items-end">
+                      <div className="space-y-4">
+                        <div className="w-24 h-px bg-gray-400"></div>
+                        <p className="text-[8px] font-black uppercase text-gray-400">PRINCIPAL</p>
                       </div>
-                      <div className="w-16 h-16 rounded-full border-4 border-red-100 flex items-center justify-center text-[8px] text-red-700/20 font-black rotate-[20deg] border-dashed select-none">
-                        KNU SEAL
+
+                      {/* Date Stamp Visual */}
+                      <div className="relative w-24 h-24 border-4 border-blue-600/30 rounded-full flex flex-col items-center justify-center -rotate-12 transform scale-75 lg:scale-100">
+                         <div className="text-[8px] font-black text-blue-600/60 uppercase">KIT PRINCIPAL</div>
+                         <div className="text-sm font-black text-red-600/80 my-1">21 APR 2026</div>
+                         <div className="text-[7px] font-black text-blue-600/60 uppercase text-center px-2">OFFICIAL<br/>VERIFICATION</div>
+                      </div>
+
+                      <div className="text-right space-y-4">
+                        <div className="w-24 h-px bg-gray-400 ml-auto"></div>
+                        <p className="text-[8px] font-black uppercase text-gray-400">REGISTRAR</p>
                       </div>
                     </div>
                   </div>
+
+                  <div className="mt-4 pt-2 border-t border-gray-100 flex justify-between items-center text-[7px] text-gray-400 font-bold uppercase tracking-widest italic">
+                    <span>A key to the understanding of the grades is on the reverse side of this sheet</span>
+                    <span>Page 38</span>
+                  </div>
                 </div>
 
-                {/* Overlay Action preserved exactly as requested */}
-                <div className="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                {/* Overlay Action */}
+                <div className="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-20">
                   <div className="bg-white p-4 rounded-full shadow-2xl transform scale-90 group-hover:scale-100 transition-all duration-300">
                     <Download className="w-8 h-8 text-[#0A192F]" />
                   </div>
                 </div>
+              </div>
+
+              <div className="bg-blue-50 p-4 rounded-2xl border border-blue-100 flex items-center gap-4">
+                <ShieldCheck className="w-6 h-6 text-blue-600" />
+                <p className="text-xs font-bold text-blue-900 uppercase tracking-tight">Transcript Digitally Verified (Ref: 2022045)</p>
               </div>
             </div>
           </section>
@@ -208,8 +231,8 @@ export default function Home() {
               <div className="bg-[#0A192F]/5 p-6 rounded-3xl border border-dashed border-[#0A192F]/20 flex items-center gap-4">
                 <CheckCircle2 className="w-8 h-8 text-[#0A192F]" />
                 <div>
-                  <p className="text-sm font-black text-[#0A192F]">Credential Verified</p>
-                  <p className="text-[10px] font-medium text-[#2D3748] opacity-70">Bachelor of Science in Information Communication Technology with Education</p>
+                  <p className="text-sm font-black text-[#0A192F]">Degree Verification</p>
+                  <p className="text-[10px] font-medium text-[#2D3748] opacity-70">B.Sc in Information Communication Technology with Education</p>
                 </div>
               </div>
             </div>
@@ -248,7 +271,7 @@ export default function Home() {
                 data-ai-hint={credentialImg?.imageHint}
               />
             </div>
-            <span className="text-[10px] font-black uppercase tracking-widest opacity-80">NRC & Official Transcript Attached</span>
+            <span className="text-[10px] font-black uppercase tracking-widest opacity-80">Official Transcript Attached (Student 2022045)</span>
           </div>
         </div>
       </footer>
