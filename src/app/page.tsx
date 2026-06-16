@@ -22,19 +22,22 @@ export default function Home() {
 
   const projects = [
     {
-      title: "Educational Tracking Systems",
-      desc: "Custom internal tools for monitoring student progress and curriculum delivery.",
-      type: "Development"
+      title: "Store Flow",
+      desc: "A local business friendly store management system handling sales stock taking and more.",
+      type: "Development",
+      image: "/images/project1.jpg"
     },
     {
-      title: "Network Infrastructure Design",
-      desc: "Standardizing development workflows and network protocols for academic labs.",
-      type: "Documentation"
+      title: "Q.R.H Quick Response health Card",
+      desc: "Standardizing patient retrieval workflows for clinical facilities by streamlining the identification process.",
+      type: "Documentation",
+      image: "/images/project2.jpg"
     },
     {
-      title: "ICT Pedagogy Framework",
-      desc: "Instructional systems design for secondary and tertiary ICT education.",
-      type: "Education"
+      title: "visual operation simulation",
+      desc: "achieving a new level of immersive experience for the medical practitioners and bringing the whole room into the inner working of the human body one tactile simulation at a time.",
+      type: "Education",
+      image: "/images/project3.jpg"
     }
   ];
 
@@ -48,7 +51,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-white font-sans">
+    <div className="relative min-h-screen flex flex-col bg-white font-sans text-[#2D3748]">
       {/* HEADER */}
       <header className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-gray-100 h-20 px-6 lg:px-12 flex items-center">
         <div className="flex flex-col">
@@ -114,7 +117,6 @@ export default function Home() {
                   fill 
                   className="object-contain"
                   priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
 
@@ -139,12 +141,12 @@ export default function Home() {
                     <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <div className="flex gap-6 items-center">
-                    <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-100">
+                    <div className="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-100">
                       <Image 
-                        src="/images/transcript.jpg" 
-                        alt="Project Thumbnail" 
+                        src={proj.image} 
+                        alt={`${proj.title} Preview`} 
                         fill 
-                        className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                        className="object-cover"
                       />
                     </div>
                     <div className="space-y-1">
