@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,26 +17,6 @@ body {
 /* Ensure fixed UI elements stay above the canvas */
 header, footer {
   pointer-events: auto;
-}
-
-/* Shatterable elements initial state */
-.shatter {
-  transition: box-shadow 0.3s ease;
-  user-select: none;
-  touch-action: none;
-}
-
-/* Hide canvas by default, it will be added by Matter.js Render */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.shatter:hover {
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 ::selection {

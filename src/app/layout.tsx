@@ -1,10 +1,9 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'GravityStack | MUKONDE BUPE',
-  description: 'Technical All-Rounder Portfolio with Anti-Gravity Mechanics',
+  description: 'Technical All-Rounder Portfolio',
 };
 
 export default function RootLayout({
@@ -18,7 +17,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" async></script>
       </head>
       <body className="font-body antialiased bg-white text-[#2D3748]">
         {children}
