@@ -9,9 +9,15 @@ export default function Home() {
   const professionalSummary = "A hybrid technical specialist merging object-oriented programming, network infrastructure, and pedagogical instruction. Expert in creating meticulous systems documentation and instructional systems designs with a focused background in ICT education and project management from Kwame Nkrumah University.";
 
   const skills = [
-    "Object Oriented Programming", "Computer Networks", "Computer Architecture",
-    "Project Management", "Systems Documentation", "Educational Management",
-    "Curriculum Design", "Full-Stack Dev", "Entrepreneurship"
+    "Object Oriented Programming", 
+    "Computer Networks", 
+    "Computer Architecture",
+    "Project Management", 
+    "Systems Documentation", 
+    "Educational Management",
+    "Curriculum Design", 
+    "Full-Stack Dev", 
+    "Entrepreneurship"
   ];
 
   const projects = [
@@ -114,7 +120,7 @@ export default function Home() {
 
               <div className="bg-blue-50 p-4 rounded-2xl border border-blue-100 flex items-center gap-4">
                 <ShieldCheck className="w-6 h-6 text-blue-600" />
-                <p className="text-xs font-bold text-blue-900 uppercase tracking-tight">Transcript Digitally Verified (Ref: 2022045)</p>
+                <p className="text-xs font-bold text-blue-900 uppercase tracking-tight">Transcript Digitally Verified (Student ID: 2022045)</p>
               </div>
             </div>
           </section>
@@ -135,10 +141,10 @@ export default function Home() {
                   <div className="flex gap-6 items-center">
                     <div className="relative w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-100">
                       <Image 
-                        src="https://picsum.photos/seed/project/600/400" 
+                        src="/images/transcript.jpg" 
                         alt="Project Thumbnail" 
                         fill 
-                        className="object-cover grayscale"
+                        className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
                       />
                     </div>
                     <div className="space-y-1">
@@ -181,7 +187,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <Button 
               onClick={handleDownload} 
-              className="bg-white text-[#0A192F] hover:bg-gray-200 font-black uppercase tracking-widest text-[10px] px-6 py-2 rounded-2xl flex items-center gap-2 shadow-xl"
+              className="bg-white text-[#0A192F] hover:bg-gray-200 font-black uppercase tracking-widest text-[10px] px-6 py-2 rounded-2xl flex items-center gap-2 shadow-xl transition-transform active:scale-95"
             >
               <Download className="w-3 h-3" />
               Download Full Transcript
