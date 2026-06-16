@@ -48,9 +48,9 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-white">
+    <div className="relative min-h-screen flex flex-col bg-white font-sans">
       {/* HEADER */}
-      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-md border-b border-gray-100 h-20 px-6 lg:px-12 flex items-center">
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-gray-100 h-20 px-6 lg:px-12 flex items-center">
         <div className="flex flex-col">
           <h1 className="text-xl lg:text-2xl font-black tracking-tighter text-[#0A192F]">MUKONDE BUPE</h1>
           <p className="text-[10px] lg:text-xs font-semibold text-[#2D3748] opacity-70 uppercase tracking-widest">B.Sc ICT with Education | Technical Specialist</p>
@@ -84,7 +84,7 @@ export default function Home() {
             {skills.map((skill, i) => (
               <div 
                 key={i} 
-                className="bg-white border-2 border-[#0A192F] text-[#0A192F] px-6 py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg hover:bg-[#0A192F] hover:text-white transition-colors cursor-default"
+                className="bg-white border-2 border-[#0A192F] text-[#0A192F] px-6 py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-md hover:shadow-lg transition-all cursor-default"
               >
                 {skill}
               </div>
@@ -106,16 +106,16 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-200 bg-white">
-                <div className="relative w-full aspect-[3/4] min-h-[500px]">
-                   <Image 
-                    src="/images/transcript.jpg" 
-                    alt="Official Transcript Mukonde Bupe" 
-                    fill 
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+              {/* Transcript Image Display */}
+              <div className="relative w-full aspect-[3/4] min-h-[500px] rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
+                <Image 
+                  src="/images/transcript.jpg" 
+                  alt="Official Transcript Mukonde Bupe" 
+                  fill 
+                  className="object-contain"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
 
               <div className="bg-blue-50 p-4 rounded-2xl border border-blue-100 flex items-center gap-4">
@@ -130,16 +130,16 @@ export default function Home() {
             <h2 className="text-2xl font-black tracking-tight text-[#0A192F] uppercase border-b-2 border-[#0A192F] pb-2 inline-block">Selected Projects</h2>
             <div className="grid gap-6">
               {projects.map((proj, i) => (
-                <div key={i} className="group bg-white border border-gray-100 p-6 rounded-3xl shadow-xl transition-all border-l-8 border-l-[#0A192F]">
+                <div key={i} className="group bg-white border border-gray-100 p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all border-l-8 border-l-[#0A192F]">
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center gap-2 px-3 py-1 bg-[#F7FAFC] rounded-full">
-                      {proj.type === 'Development' ? <Code className="w-3 h-3" /> : <FileText className="w-3 h-3" />}
+                      {proj.type === 'Development' ? <Code className="w-3 h-3 text-[#0A192F]" /> : <FileText className="w-3 h-3 text-[#0A192F]" />}
                       <span className="text-[10px] font-black uppercase tracking-widest opacity-60">{proj.type}</span>
                     </div>
                     <ExternalLink className="w-4 h-4 opacity-30 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <div className="flex gap-6 items-center">
-                    <div className="relative w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-100">
+                    <div className="relative w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-100">
                       <Image 
                         src="/images/transcript.jpg" 
                         alt="Project Thumbnail" 
@@ -167,32 +167,30 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="fixed bottom-0 left-0 right-0 z-[100] bg-[#0A192F] text-white p-6 lg:px-12">
+      <footer className="fixed bottom-0 left-0 right-0 z-[100] bg-[#0A192F] text-white p-6 lg:px-12 border-t border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 w-full">
           <div className="flex flex-wrap justify-center gap-8">
-            <a href="mailto:mukondebupe@gmail.com" className="flex items-center gap-2 hover:opacity-60 transition-opacity">
-              <Mail className="w-4 h-4" />
+            <a href="mailto:mukondebupe@gmail.com" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
+              <Mail className="w-4 h-4 text-blue-400" />
               <span className="text-xs font-black uppercase tracking-widest">mukondebupe@gmail.com</span>
             </a>
-            <a href="tel:0975606376" className="flex items-center gap-2 hover:opacity-60 transition-opacity">
-              <Phone className="w-4 h-4" />
+            <a href="tel:0975606376" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
+              <Phone className="w-4 h-4 text-blue-400" />
               <span className="text-xs font-black uppercase tracking-widest">0975606376</span>
             </a>
-            <a href="https://www.linkedin.com/in/bupe-mukonde-74b0153bb" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:opacity-60 transition-opacity">
-              <Linkedin className="w-4 h-4" />
+            <a href="https://www.linkedin.com/in/bupe-mukonde-74b0153bb" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
+              <Linkedin className="w-4 h-4 text-blue-400" />
               <span className="text-xs font-black uppercase tracking-widest">LinkedIn</span>
             </a>
           </div>
           
-          <div className="flex items-center gap-4">
-            <Button 
-              onClick={handleDownload} 
-              className="bg-white text-[#0A192F] hover:bg-gray-200 font-black uppercase tracking-widest text-[10px] px-6 py-2 rounded-2xl flex items-center gap-2 shadow-xl transition-transform active:scale-95"
-            >
-              <Download className="w-3 h-3" />
-              Download Full Transcript
-            </Button>
-          </div>
+          <Button 
+            onClick={handleDownload} 
+            className="bg-white text-[#0A192F] hover:bg-gray-100 font-black uppercase tracking-widest text-[10px] px-8 py-5 rounded-2xl flex items-center gap-2 shadow-2xl transition-transform active:scale-95"
+          >
+            <Download className="w-4 h-4" />
+            Download Transcript
+          </Button>
         </div>
       </footer>
     </div>
