@@ -19,6 +19,17 @@ header, footer {
   pointer-events: auto;
 }
 
+/* Force hide the Next.js development indicator "N" symbol */
+#nextjs-portal, 
+[data-nextjs-toast-errors-parent], 
+.nextjs-static-indicator,
+[data-nextjs-feedback-button] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 ::selection {
   background: #0A192F;
   color: white;

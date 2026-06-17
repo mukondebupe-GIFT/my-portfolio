@@ -1,10 +1,9 @@
-
 "use client";
 
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Linkedin, Mail, Phone, ExternalLink, GraduationCap, Code, FileText, Download, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Linkedin, Mail, Phone, GraduationCap, Code, FileText, Download, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
@@ -37,7 +36,7 @@ export default function Home() {
       category: "Documentation",
       desc: "Standardizing patient retrieval workflows for clinical facilities by streamlining the identification process.",
       type: "Video Case Study",
-      image: "/images/project2.png"
+      image: "/images/project2.jpg"
     },
     {
       id: "3",
@@ -96,6 +95,7 @@ export default function Home() {
               fill 
               className="object-cover"
               priority
+              unoptimized
             />
           </div>
         </section>
@@ -137,6 +137,7 @@ export default function Home() {
                   alt="Official Transcript" 
                   fill 
                   className="object-contain"
+                  unoptimized
                 />
               </div>
 
@@ -168,6 +169,7 @@ export default function Home() {
                           alt={proj.title} 
                           fill 
                           className="object-cover transition-transform group-hover:scale-110"
+                          unoptimized
                         />
                       </div>
                       <div className="space-y-1">
