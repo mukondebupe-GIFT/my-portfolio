@@ -36,7 +36,7 @@ export default function Home() {
       category: "Documentation",
       desc: "Standardizing patient retrieval workflows for clinical facilities by streamlining the identification process.",
       type: "Video Case Study",
-      image: "/images/project2.jpg"
+      image: "/images/project2.png"
     },
     {
       id: "3",
