@@ -2,14 +2,15 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
+import Link from 'next/navigation';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { ArrowLeft, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function ProjectDetail() {
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id as string;
 
   const projectsData = {
     "1": {
@@ -40,6 +41,7 @@ export default function ProjectDetail() {
         "/images/gallery3/7.webp",
         "/images/gallery3/8.webp",
         "/images/gallery3/9.webp",
+        "/images/gallery3/10.webp",
       ],
       description: "An immersive educational tool for medical practitioners. This gallery showcases the simulation environment and the tactile interface designed to visualize the internal workings of the human body."
     }
@@ -52,9 +54,9 @@ export default function ProjectDetail() {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center space-y-4">
           <h1 className="text-2xl font-bold">Project not found</h1>
-          <Link href="/">
+          <a href="/">
             <Button variant="outline">Return Home</Button>
-          </Link>
+          </a>
         </div>
       </div>
     );
@@ -65,12 +67,12 @@ export default function ProjectDetail() {
       {/* HEADER */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A192F]/80 backdrop-blur-lg border-b border-white/10 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/">
+          <a href="/">
             <Button variant="ghost" className="text-white hover:bg-white/10 gap-2 font-bold uppercase tracking-wider text-xs">
               <ArrowLeft className="w-4 h-4" />
               Back to Portfolio
             </Button>
-          </Link>
+          </a>
           <div className="hidden md:block">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-50">Project Showcase</span>
           </div>
@@ -144,11 +146,11 @@ export default function ProjectDetail() {
               </div>
 
               <div className="p-1">
-                <Link href="/">
+                <a href="/">
                   <Button className="w-full h-16 rounded-2xl bg-white text-[#0A192F] hover:bg-gray-200 font-black uppercase tracking-widest transition-transform active:scale-[0.98]">
                     Contact for Details
                   </Button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
