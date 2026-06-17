@@ -31,12 +31,12 @@ export default function ProjectDetail() {
       category: "Education",
       type: "gallery",
       images: [
-        "/images/gallery3/1.jpg",
-        "/images/gallery3/2.jpg",
-        "/images/gallery3/3.jpg",
-        "/images/gallery3/4.jpg",
-        "/images/gallery3/5.jpg",
-        "/images/gallery3/6.jpg",
+        "/images/gallery3/1.webp",
+        "/images/gallery3/2.webp",
+        "/images/gallery3/3.webp",
+        "/images/gallery3/4.webp",
+        "/images/gallery3/5.webp",
+        "/images/gallery3/6.webp",
       ],
       description: "An immersive educational tool for medical practitioners. This gallery showcases the simulation environment and the tactile interface designed to visualize the internal workings of the human body."
     }
@@ -95,7 +95,6 @@ export default function ProjectDetail() {
                     src={project.src} 
                     controls 
                     className="w-full h-full object-contain"
-                    poster="/images/project-placeholder.jpg"
                   >
                     Your browser does not support the video tag.
                   </video>
@@ -103,16 +102,16 @@ export default function ProjectDetail() {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.images.map((img, index) => (
-                    <div key={index} className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/5">
+                    <div key={index} className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/5 bg-white/5">
                       <Image 
                         src={img} 
                         alt={`Gallery item ${index + 1}`}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         onError={(e) => {
-                          // Fallback if specific images aren't there yet
                           const target = e.target as HTMLImageElement;
-                          target.src = "https://picsum.photos/seed/" + (index + 10) + "/800/600";
+                          target.style.display = 'none';
                         }}
                       />
                     </div>
