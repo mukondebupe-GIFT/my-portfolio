@@ -33,11 +33,11 @@ export default function Home() {
     },
     {
       id: "2",
-      title: "Q.R.H Quick Response Health Card",
+      title: "Q.H.C Quick Response Health Card",
       category: "Documentation",
       desc: "Standardizing patient retrieval workflows for clinical facilities by streamlining the identification process.",
       type: "Video Case Study",
-      image: "/images/project2.jpg"
+      image: "/images/project2.png"
     },
     {
       id: "3",
