@@ -14,20 +14,21 @@ body {
   overflow-x: hidden;
 }
 
-/* Ensure fixed UI elements stay above the canvas */
-header, footer {
-  pointer-events: auto;
-}
-
-/* Force hide the Next.js development indicator "N" symbol */
-#nextjs-portal, 
-[data-nextjs-toast-errors-parent], 
-.nextjs-static-indicator,
-[data-nextjs-feedback-button] {
+/* 
+  FORCE HIDE NEXT.JS DEVELOPMENT OVERLAYS
+  This targets the "N" symbol and other dev-only UI elements 
+*/
+[data-nextjs-portal],
+#nextjs-portal,
+.nextjs-toast-errors-parent,
+[data-nextjs-toast-errors-parent],
+[data-nextjs-feedback-button],
+nextjs-portal {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  z-index: -1 !important;
 }
 
 ::selection {
