@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { ArrowLeft, Play, LayoutGrid, Info } from 'lucide-react';
+import { ArrowLeft, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function ProjectDetail() {
@@ -37,6 +37,9 @@ export default function ProjectDetail() {
         "/images/gallery3/4.webp",
         "/images/gallery3/5.webp",
         "/images/gallery3/6.webp",
+        "/images/gallery3/7.webp",
+        "/images/gallery3/8.webp",
+        "/images/gallery3/9.webp",
       ],
       description: "An immersive educational tool for medical practitioners. This gallery showcases the simulation environment and the tactile interface designed to visualize the internal workings of the human body."
     }
@@ -101,18 +104,15 @@ export default function ProjectDetail() {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {project.images.map((img, index) => (
-                    <div key={index} className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/5 bg-white/5">
+                  {project.images?.map((img, index) => (
+                    <div key={index} className="relative aspect-[4/3] rounded-2xl overflow-hidden group border border-white/5 bg-white/5 shadow-xl">
                       <Image 
                         src={img} 
                         alt={`Gallery item ${index + 1}`}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                        }}
+                        unoptimized={true}
                       />
                     </div>
                   ))}
