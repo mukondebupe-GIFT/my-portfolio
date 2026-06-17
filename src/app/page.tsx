@@ -29,7 +29,7 @@ export default function Home() {
       category: "Development",
       desc: "A local business friendly store management system handling sales stock taking and more.",
       type: "Video Presentation",
-      image: "/images/project1.jpg"
+      image: "/images/project1.png"
     },
     {
       id: "2",
@@ -45,7 +45,7 @@ export default function Home() {
       category: "Education",
       desc: "Achieving a new level of immersive experience for the medical practitioners and bringing the whole room into the inner working of the human body.",
       type: "Image Gallery",
-      image: "/images/project3.jpg"
+      image: "/images/project3.png"
     }
   ];
 
